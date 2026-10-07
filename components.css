@@ -436,3 +436,7 @@
   color: var(--color-text-muted);
   text-align: center;
 }
+.shot--small .shot__frame {
+  max-width: 340px;
+  margin: 0 auto;
+}
