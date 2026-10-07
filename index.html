@@ -52,6 +52,7 @@
       <details class="toc">
         <summary>目次を開く</summary>
         <ol>
+          <li><a href="#quick">まずここから（最短ルート）</a></li>
           <li><a href="#about">Claudeの何がすごいの？</a></li>
           <li><a href="#table">どこまでできる？</a></li>
           <li><a href="#pick">任せたい仕事を探そう</a></li>
@@ -67,6 +68,41 @@
           <li><a href="#faq">困ったとき</a></li>
         </ol>
       </details>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 01.5 最短ルート
+  ============================================================ -->
+  <section class="section section--soft" id="quick" aria-labelledby="quick-heading">
+    <div class="section__inner reveal">
+      <h2 class="section__heading" id="quick-heading">まずここから<br>最短ルート</h2>
+      <p class="section__desc">全部読まなくても大丈夫。自分に合う方だけ、順番にやってみてください</p>
+      <div class="quick-grid">
+        <div class="quick-card">
+          <p class="quick-card__tags"><span class="tag tag--free">無料でもOK</span></p>
+          <h3 class="quick-card__title">無料で、今日の1件</h3>
+          <p class="quick-card__sub">Gmailの返信を、下書きまで任せる</p>
+          <ol class="quick-card__steps">
+            <li><a href="https://claude.ai/" target="_blank" rel="noopener noreferrer">claude.ai</a> でアカウントを作る</li>
+            <li>設定 →「コネクタ」→「探索」で、Gmailの「＋」を押して、Googleの許可を出す</li>
+            <li>「メールを整理して、返信の下書きを作る」の文章を送る</li>
+          </ol>
+          <a class="btn btn--primary" href="#gmail-prompt">この文章を見る</a>
+        </div>
+        <div class="quick-card quick-card--main">
+          <p class="quick-card__tags"><span class="tag tag--paid">有料プラン</span><span class="tag tag--desktop">デスクトップ版</span></p>
+          <h3 class="quick-card__title">有料で、フォルダを任せる</h3>
+          <p class="quick-card__sub">パソコンの中の整理を、まるごと任せる</p>
+          <ol class="quick-card__steps">
+            <li>有料プラン（Pro以上）に入り、デスクトップアプリを入れる</li>
+            <li>練習用のフォルダを作って、コピーを入れる</li>
+            <li>「フォルダを整理してもらう」の文章を送る</li>
+          </ol>
+          <a class="btn btn--primary" href="#folder-prompt">この文章を見る</a>
+        </div>
+      </div>
+      <p class="quick-note">どちらも、最初は「送信や削除はしないで、案だけ見せて」と頼むのが安心です。</p>
     </div>
   </section>
 
@@ -122,7 +158,7 @@
           <tbody>
             <tr><th scope="row">質問して、答えをもらう</th><td>○</td><td>○</td></tr>
             <tr><th scope="row">仕事の前提を覚えてもらう（メモリ）</th><td>○</td><td>○</td></tr>
-            <tr><th scope="row">仕事ごとの「棚」を作る（Projects）<span class="feature-table__note">作れる数には上限があります</span></th><td>○</td><td>○</td></tr>
+            <tr><th scope="row">仕事ごとの「棚」を作る（プロジェクト）<span class="feature-table__note">作れる数には上限があります</span></th><td>○</td><td>○</td></tr>
             <tr><th scope="row">Word・Excel・PowerPointなどを作ってもらう<span class="feature-table__note">設定をオンにして、ダウンロードして受け取ります</span></th><td>○</td><td>○</td></tr>
             <tr><th scope="row">Gmail・カレンダー・ドライブとつなぐ</th><td>○</td><td>○</td></tr>
             <tr class="feature-table__key"><th scope="row"><span class="tag tag--paid">有料プラン</span>仕事を任せる（実行型タスク・旧Cowork）</th><td>×</td><td>○</td></tr>
@@ -132,7 +168,7 @@
       </div>
       <div class="note-box">
         <p class="note-box__label">ここだけ覚えてください</p>
-        <p>無料でも、このガイドの<strong>前半</strong>（覚えてもらう・Projects・ファイル作成・Gmailなどとつなぐ）は試せます。仕事を「任せる」本番は、有料プランです。</p>
+        <p>無料でも、このガイドの<strong>前半</strong>（覚えてもらう・プロジェクト・ファイル作成・Gmailなどとつなぐ）は試せます。仕事を「任せる」本番は、有料プランです。</p>
         <p>無料版には利用の上限があり、一定時間（約5時間）ごとにリセットされます。会社のアカウント（Team・Enterprise）は、管理者の設定で使えない機能がある場合があります。</p>
       </div>
     </div>
@@ -176,9 +212,15 @@
       <ol class="numbered-steps">
         <li><strong>アカウントを作る</strong>：<a href="https://claude.ai/" target="_blank" rel="noopener noreferrer">claude.ai</a> でアカウントを作ります（18歳以上、対応地域のみ）。</li>
         <li><strong>デスクトップアプリを入れる</strong><span class="tag tag--desktop">デスクトップ版</span>：<a href="https://claude.com/download" target="_blank" rel="noopener noreferrer">claude.com/download</a> から、MacかWindowsのアプリをダウンロードします。無料でも使えます。</li>
-        <li><strong>ファイル作成をオンにする</strong><span class="tag tag--free">無料でもOK</span>：設定の中の「Capabilities（機能）」にある「Code execution and file creation」をオンにします。Word・Excelなどを作ってもらえるようになります。</li>
+        <li><strong>ファイル作成をオンにする</strong><span class="tag tag--free">無料でもOK</span>：設定を開き、左の「機能」→「コードの実行とファイルの作成」にある「クラウドでのコード実行とファイル作成」をオンにします（すでにオンの人もいます）。Word・Excelなどを作ってもらえるようになります。</li>
         <li><strong>有料プランを選ぶ</strong><span class="tag tag--paid">有料プラン</span>：仕事を任せるには、Pro（月20ドル＋日本では消費税10%）以上が必要です。<a href="https://claude.com/pricing" target="_blank" rel="noopener noreferrer">料金ページ</a>で、最新の条件を確認してから申し込みましょう。</li>
       </ol>
+      <figure class="shot">
+        <a class="shot__link" href="assets/images/shot-settings-files.jpg" target="_blank" rel="noopener noreferrer">
+          <span class="shot__frame" style="--ratio:968 / 757"><img class="shot__img" src="assets/images/shot-settings-files.jpg" loading="lazy" decoding="async" alt="設定画面の「機能」を開いた様子。下のほうに「クラウドでのコード実行とファイル作成」のスイッチがある"><span class="shot__mark" style="--x:1.1%;--y:32.8%;--w:16.3%;--h:4.0%"></span><span class="shot__mark" style="--x:20.5%;--y:85.9%;--w:77.7%;--h:9.0%"></span></span>
+        </a>
+        <figcaption>手順3の画面です。赤い枠の2か所を見てください。画像をタップすると、大きく見られます（2026年10月7日の画面）。</figcaption>
+      </figure>
       <div class="note-box">
         <p class="note-box__label">画面の名前は変わることがあります</p>
         <p>ボタンやメニューの名前は、アプリの更新で変わることがあります。見つからないときは、公式の案内（このページの最後にリンクがあります）で確認してください。申し込みの前に、無料版で前半の機能を試してみるのもおすすめです。</p>
@@ -217,7 +259,7 @@
       <p class="fill-hint"><span class="fill">〈 〉</span>の部分は、自分の内容に書き換えてから送ってください。</p>
       <div class="note-box">
         <p class="note-box__label">覚えてもらった内容は、自分で見られます</p>
-        <p>Claudeが覚えた内容は、設定の「Memory（メモリ）」で確認・編集できます。パスワードやカード番号など、覚えてほしくない情報は書かないでください。</p>
+        <p>Claudeが覚えた内容は、設定の「メモリー」で確認・編集できます。パスワードやカード番号など、覚えてほしくない情報は書かないでください。</p>
       </div>
     </div>
   </section>
@@ -231,16 +273,24 @@
       <h2 class="section__heading" id="projects-heading">仕事ごとの<br>「棚」を作る</h2>
       <p class="tag-row"><span class="tag tag--free">無料でもOK</span></p>
       <div class="prose">
-        <p><strong>Projects（プロジェクト）</strong>は、仕事ごとに「資料」と「ルール」を置いておける棚のようなものです。たとえば「メール対応」の棚には、よく使う文例と、守ってほしいルールを入れておきます。</p>
+        <p><strong>プロジェクト（Projects）</strong>は、仕事ごとに「資料」と「ルール」を置いておける棚のようなものです。たとえば「メール対応」の棚には、よく使う文例と、守ってほしいルールを入れておきます。</p>
       </div>
       <ol class="numbered-steps">
-        <li>Claudeの画面で「Projects」を開き、新しいプロジェクトを作る</li>
-        <li>名前を付ける（例：メール対応、セミナー準備）</li>
-        <li>関係する資料（文例、過去の資料など）を入れる</li>
-        <li>下の文章を、プロジェクトの「指示」に貼り付ける</li>
+        <li>画面左のメニューで、「プロジェクト」の横の「＋」を押す</li>
+        <li>「名前」を入れる（例：メール対応、セミナー準備）</li>
+        <li>「目標」に、下の文章を貼り付ける</li>
+        <li>必要なら、「コンテキスト」の「＋追加」で、資料（文例、過去の資料など）を入れる</li>
+        <li>「プロジェクトを作成」を押す</li>
       </ol>
+      <figure class="shot">
+        <a class="shot__link" href="assets/images/shot-project-new.jpg" target="_blank" rel="noopener noreferrer">
+          <span class="shot__frame" style="--ratio:492 / 429"><img class="shot__img" src="assets/images/shot-project-new.jpg" loading="lazy" decoding="async" alt="「新規プロジェクト」の画面。名前、目標（任意）、コンテキスト（任意）の欄と、プロジェクトを作成するボタンがある"><span class="shot__mark" style="--x:4.5%;--y:35.7%;--w:90.9%;--h:24.9%"></span><span class="shot__mark" style="--x:66.7%;--y:87.9%;--w:28.7%;--h:6.8%"></span></span>
+        </a>
+        <figcaption>赤い枠は、文章を入れる「目標」と、最後に押すボタンです。</figcaption>
+      </figure>
+
       <div class="prompt-box">
-        <p class="prompt-box__title">プロンプト②　プロジェクトの指示文</p>
+        <p class="prompt-box__title">プロンプト②　プロジェクトの「目標」に入れる文</p>
         <pre class="prompt-box__text" id="p-project">このプロジェクトでは、私の〈例：メール対応〉の仕事を手伝ってください。
 
 【前提】
@@ -279,7 +329,7 @@
         <p>ブラウザ版やスマホでは、パソコン内のフォルダは扱えません。ファイルを画面にアップロードして渡す形になります。</p>
       </div>
 
-      <h3 class="sub-heading">例①　フォルダを整理してもらう</h3>
+      <h3 class="sub-heading" id="folder-prompt">例①　フォルダを整理してもらう</h3>
       <div class="prompt-box">
         <p class="prompt-box__title">プロンプト③　まずは案だけ出してもらう</p>
         <pre class="prompt-box__text" id="p-folder">このフォルダの中身を整理したいです。
@@ -379,16 +429,23 @@
         <p><strong>コネクタ</strong>は、Claudeと、Gmail・Googleカレンダー・Googleドライブをつなぐ仕組みです。つなぐと、Claudeがメールや予定を読んで、仕事をしてくれます。</p>
       </div>
       <ol class="numbered-steps">
-        <li>Claudeの設定で、コネクタ（Connectors）を開く</li>
-        <li>Gmail・Googleカレンダー・Googleドライブから、使いたいものを選ぶ</li>
+        <li>設定を開き、左の「コネクタ」を押して、上の「探索」を押す</li>
+        <li>Gmail・Google Calendar・Google Driveの右の「＋」を押す（つながっているものは、緑のチェックが付いています）</li>
         <li>Googleアカウントの確認画面が出たら、内容を読んで<strong>自分で</strong>許可する</li>
       </ol>
+      <figure class="shot">
+        <a class="shot__link" href="assets/images/shot-connectors.jpg" target="_blank" rel="noopener noreferrer">
+          <span class="shot__frame" style="--ratio:968 / 757"><img class="shot__img" src="assets/images/shot-connectors.jpg" loading="lazy" decoding="async" alt="設定の「コネクタ」の「探索」画面。Google Drive、Gmail、Google Calendarなどが並び、つながっているものには緑のチェックが付いている"><span class="shot__mark" style="--x:1.1%;--y:72.3%;--w:16.3%;--h:4.0%"></span><span class="shot__mark" style="--x:40.2%;--y:7.3%;--w:5.1%;--h:3.6%"></span><span class="shot__mark" style="--x:59.9%;--y:18.9%;--w:38.2%;--h:13.3%"></span><span class="shot__mark" style="--x:20.6%;--y:33.6%;--w:38.3%;--h:13.2%"></span></span>
+        </a>
+        <figcaption>赤い枠を順に押します。「＋」がまだ付いていないものが、これからつなぐものです。</figcaption>
+      </figure>
+
       <div class="note-box note-box--warn">
         <p class="note-box__label">最初は「下書きまで」</p>
         <p>つなぐと、Claudeはメールの送信や予定の登録・変更もできるようになります。最初は「<strong>送信はしないで、下書きまで</strong>」「<strong>登録する前に確認して</strong>」と頼んでおくと安心です。</p>
       </div>
 
-      <h3 class="sub-heading">メールを整理して、返信の下書きを作る</h3>
+      <h3 class="sub-heading" id="gmail-prompt">メールを整理して、返信の下書きを作る</h3>
       <div class="prompt-box">
         <p class="prompt-box__title">プロンプト⑦　Gmailの整理と下書き</p>
         <pre class="prompt-box__text" id="p-gmail">Gmailの〈例：この1週間〉の受信メールを読んで、整理してください。
@@ -529,6 +586,10 @@
       <div class="prose">
         <p>STEP 1で選んだ仕事から、<strong>いちばん小さいもの</strong>を1つ選びます。下の文章に当てはめて送れば、準備は完了です。</p>
       </div>
+      <div class="note-box">
+        <p class="note-box__label"><span class="tag tag--free">無料でもOK</span>最初の1件のおすすめ</p>
+        <p>無料版の人は、STEP 6でGmailをつないで、<a href="#gmail-prompt">「メールを整理して、返信の下書きを作る」</a>から始めましょう。有料プラン＋デスクトップ版の人は、<a href="#folder-prompt">フォルダの整理</a>が最初の1件におすすめです。</p>
+      </div>
       <div class="prompt-box">
         <p class="prompt-box__title">プロンプト⑬　仕事を1つ任せる</p>
         <pre class="prompt-box__text" id="p-today">私の仕事を1つ、任せたいです。
@@ -593,7 +654,7 @@
         </details>
         <details>
           <summary>無料版でも全部できますか？</summary>
-          <p>いいえ。覚えてもらう・Projects・ファイル作成・Gmailなどとつなぐ、までは無料でも試せます。仕事を任せる機能と、パソコン内のフォルダを扱う操作は、有料プラン（デスクトップ版）が前提です。</p>
+          <p>いいえ。覚えてもらう・プロジェクト・ファイル作成・Gmailなどとつなぐ、までは無料でも試せます。仕事を任せる機能と、パソコン内のフォルダを扱う操作は、有料プラン（デスクトップ版）が前提です。</p>
         </details>
         <details>
           <summary>ブラウザ版やスマホで、Mac内のフォルダを操作できますか？</summary>

@@ -336,3 +336,103 @@
   margin: 0.7rem 0 0;
   font-size: 0.95rem;
 }
+
+/* ---------- 最短ルート ---------- */
+
+.quick-grid {
+  display: grid;
+  gap: 0.9rem;
+}
+@media (min-width: 640px) {
+  .quick-grid {
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+  }
+}
+.quick-card {
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem 1.25rem 1.4rem;
+  box-shadow: 0 12px 28px -18px var(--color-card-shadow);
+}
+.quick-card--main {
+  border: 2px solid var(--color-primary);
+}
+.quick-card__tags {
+  margin: 0 0 0.4rem;
+}
+.quick-card__title {
+  margin: 0;
+  font-size: 1.15rem;
+  line-height: 1.5;
+}
+.quick-card__sub {
+  margin: 0.1rem 0 0.8rem;
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+}
+.quick-card__steps {
+  margin: 0 0 1.1rem;
+  padding-left: 1.5em;
+  font-size: 0.95rem;
+}
+.quick-card__steps li {
+  margin-bottom: 0.55em;
+}
+.quick-card__steps li::marker {
+  color: var(--color-primary-dark);
+  font-weight: 800;
+}
+.quick-card .btn {
+  width: 100%;
+}
+.quick-note {
+  margin: 1rem 0 0;
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+}
+
+/* ---------- 画面のスクリーンショット（赤い枠＝押す場所） ---------- */
+
+.shot {
+  margin: 1.5rem 0;
+}
+.shot__link {
+  display: block;
+}
+.shot__frame {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: var(--ratio);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: 0 12px 28px -18px var(--color-card-shadow);
+  background: #fff;
+}
+.shot__img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.shot__mark {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  width: var(--w);
+  height: var(--h);
+  border: 3px solid var(--color-primary);
+  border-radius: 8px;
+  box-shadow: 0 0 0 2px #fff;
+  pointer-events: none;
+}
+.shot figcaption {
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  text-align: center;
+}

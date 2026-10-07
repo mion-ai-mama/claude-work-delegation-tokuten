@@ -53,6 +53,8 @@ index.html / style.css / components.css / script.js / README.md / assets/ / docs
 
 ## 画像の扱い
 
+スクリーンショットは、設定ウィンドウなど**個人情報が写らない範囲だけを切り抜く**（名前・メール・チャット履歴・左サイドバーの下部は写さない）。撮影元の画像は、使い終わったら削除する。画面は更新で変わるので、公開前に撮り直す。
+
 `<img>` に `width` / `height` 属性を付けない。CSSで `aspect-ratio` + `object-fit: contain` + `height: auto`。
 
 ## コード品質
