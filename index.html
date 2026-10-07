@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Claudeに「仕事を任せる」はじめてガイド</title>
+<meta name="description" content="質問するだけのAIから、仕事を任せるAIへ。Claudeに実際の仕事を頼む方法を、初心者向けにコピペで使えるプロンプト付きで解説する無料ガイドです。">
+<!-- OGP（画像は設定しない方針） -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Claudeに「仕事を任せる」はじめてガイド">
+<meta property="og:description" content="質問するだけのAIから、仕事を任せるAIへ。コピペで使えるプロンプト付きの無料ガイド。">
+<meta property="og:url" content="https://mion-ai-mama.github.io/claude-work-delegation-tokuten/">
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#d03f64">
+<link rel="icon" href="assets/favicon/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="components.css">
+</head>
+<body>
+<a class="skip-link" href="#main">本文へスキップ</a>
+
+<main id="main">
+
+  <!-- ============================================================
+       SECTION 01 ファーストビュー
+  ============================================================ -->
+  <section class="hero" id="hero" aria-label="ページ紹介">
+    <div class="hero__inner">
+      <p class="hero__label">コピペで使えるプロンプト付き</p>
+      <h1 class="hero__title">Claudeに<br>「仕事を任せる」<br>はじめてガイド</h1>
+      <p class="hero__subtitle">「質問する」から「任せる」へ。<br>読み終わったら、<strong>仕事を1つ</strong>頼んでみましょう。</p>
+
+      <div class="know-box" id="know">
+        <p class="know-box__title">まず知っておいてほしいこと</p>
+        <ul class="know-box__list">
+          <li>
+            <span class="tag tag--rollout">順次展開中</span>
+            <p>新しいClaudeは<strong>少しずつ展開中</strong>です。まだ「Chat / Cowork」の切り替えが表示される人もいます。</p>
+          </li>
+          <li>
+            <span class="tag tag--paid">有料プラン</span>
+            <p>仕事を任せる機能は <strong>Pro / Max / Team / Enterprise</strong> が対象です。無料版は、前半の機能を試せます。</p>
+          </li>
+          <li>
+            <span class="tag tag--desktop">デスクトップ版</span>
+            <p>パソコン内のフォルダを直接扱うには、<strong>Claudeのデスクトップアプリ</strong>が必要です。</p>
+          </li>
+        </ul>
+        <p class="know-box__more"><a href="#table">くわしくは「どこまでできる？」の表へ</a></p>
+      </div>
+
+      <details class="toc">
+        <summary>目次を開く</summary>
+        <ol>
+          <li><a href="#about">Claudeの何がすごいの？</a></li>
+          <li><a href="#table">どこまでできる？</a></li>
+          <li><a href="#pick">任せたい仕事を探そう</a></li>
+          <li><a href="#prepare">準備（10分）</a></li>
+          <li><a href="#memory">自分の仕事を覚えてもらう</a></li>
+          <li><a href="#projects">仕事ごとの「棚」を作る</a></li>
+          <li><a href="#files">ファイル・フォルダを任せる</a></li>
+          <li><a href="#connect">Gmailやカレンダーとつなぐ</a></li>
+          <li><a href="#multi">いくつかの作業をまとめて任せる</a></li>
+          <li><a href="#safe">安全に任せるコツ</a></li>
+          <li><a href="#today">今日の1件</a></li>
+          <li><a href="#next">その先へ</a></li>
+          <li><a href="#faq">困ったとき</a></li>
+        </ol>
+      </details>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 02 Claudeの何がすごいの？
+  ============================================================ -->
+  <section class="section" id="about" aria-labelledby="about-heading">
+    <div class="section__inner reveal">
+      <h2 class="section__heading" id="about-heading">Claudeって、<br>何がすごいの？</h2>
+      <div class="prose">
+        <p>難しい話なしで言うと、<strong>実際の仕事を頼めるようになってきたこと</strong>です。</p>
+        <p>これまでのAIは、質問すると答えを画面に出してくれる使い方が中心でした。今は、仕事をまるごと頼んで、<strong>できあがったファイルを受け取る</strong>使い方ができます。</p>
+      </div>
+      <div class="compare">
+        <div class="compare__item">
+          <p class="compare__label">これまで：聞く</p>
+          <p>「メールの返事、どう書けばいい？」</p>
+          <p class="compare__result">答えが画面に出る。コピーして、自分で貼る。</p>
+        </div>
+        <div class="compare__arrow" aria-hidden="true">→</div>
+        <div class="compare__item compare__item--main">
+          <p class="compare__label">これから：任せる</p>
+          <p>「今週のメールを読んで、返事の下書きを作って」</p>
+          <p class="compare__result">メールを読み、下書きまで作ってくれる。確認するのは自分。</p>
+        </div>
+      </div>
+      <h3 class="sub-heading">「Cowork」という名前を見かけたら</h3>
+      <div class="prose">
+        <p>以前は「Cowork（コワーク）」という<strong>別のモード</strong>で、仕事を任せる機能が用意されていました。2026年9月16日から、これは<strong>通常のClaudeに統合されました</strong>。モードを切り替えなくても、ふつうに頼むだけで、Claudeが「すぐ答える」か「作業をする」かを判断します。</p>
+      </div>
+      <div class="note-box">
+        <p class="note-box__label"><span class="tag tag--rollout">順次展開中</span></p>
+        <p>新しい画面は少しずつ広がっています。まだ「Chat / Cowork」の切り替えが出ている人は、仕事を任せたいときに「Cowork」側で頼んでください。出ていない人は、そのまま頼むだけです。このガイドの頼み文は、どちらの画面でも使えます。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 03 どこまでできる？
+  ============================================================ -->
+  <section class="section section--soft" id="table" aria-labelledby="table-heading">
+    <div class="section__inner reveal">
+      <h2 class="section__heading" id="table-heading">どこまでできる？<br>無料と有料の違い</h2>
+      <p class="section__desc">「無料でも全部できる」と思って始めると、がっかりしてしまうので、先に確認しましょう</p>
+      <div class="table-wrap">
+        <table class="feature-table">
+          <caption>○＝使える　×＝使えない</caption>
+          <thead>
+            <tr><th scope="col">できること</th><th scope="col">無料</th><th scope="col">有料</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">質問して、答えをもらう</th><td>○</td><td>○</td></tr>
+            <tr><th scope="row">仕事の前提を覚えてもらう（メモリ）</th><td>○</td><td>○</td></tr>
+            <tr><th scope="row">仕事ごとの「棚」を作る（Projects）<span class="feature-table__note">作れる数には上限があります</span></th><td>○</td><td>○</td></tr>
+            <tr><th scope="row">Word・Excel・PowerPointなどを作ってもらう<span class="feature-table__note">設定をオンにして、ダウンロードして受け取ります</span></th><td>○</td><td>○</td></tr>
+            <tr><th scope="row">Gmail・カレンダー・ドライブとつなぐ</th><td>○</td><td>○</td></tr>
+            <tr class="feature-table__key"><th scope="row"><span class="tag tag--paid">有料プラン</span>仕事を任せる（実行型タスク・旧Cowork）</th><td>×</td><td>○</td></tr>
+            <tr class="feature-table__key"><th scope="row"><span class="tag tag--paid">有料プラン</span><span class="tag tag--desktop">デスクトップ版</span>パソコン内のフォルダを直接扱う<span class="feature-table__note">ブラウザ版・スマホでは、パソコン内のフォルダは自由に操作できません</span></th><td>×</td><td>○</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="note-box">
+        <p class="note-box__label">ここだけ覚えてください</p>
+        <p>無料でも、このガイドの<strong>前半</strong>（覚えてもらう・Projects・ファイル作成・Gmailなどとつなぐ）は試せます。仕事を「任せる」本番は、有料プランです。</p>
+        <p>無料版には利用の上限があり、一定時間（約5時間）ごとにリセットされます。会社のアカウント（Team・Enterprise）は、管理者の設定で使えない機能がある場合があります。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 04 任せたい仕事を探そう
+  ============================================================ -->
+  <section class="section" id="pick" aria-labelledby="pick-heading">
+    <div class="section__inner reveal">
+      <p class="step-label">STEP 1</p>
+      <h2 class="section__heading" id="pick-heading">任せたい仕事を<br>探そう</h2>
+      <div class="prose">
+        <p>今まで自分でやっていた仕事の中に、任せられるものがあるかもしれません。当てはまるものにチェックしてください。チェックは、このブラウザに保存されます。</p>
+      </div>
+      <ul class="pick-list">
+        <li><label><input type="checkbox" data-progress="pick1"><span class="pick-list__body"><strong>お客様や取引先へのメール返信</strong><small>下書きまで作ってもらう</small></span></label></li>
+        <li><label><input type="checkbox" data-progress="pick2"><span class="pick-list__body"><strong>予定の調整</strong><small>空いている時間を探して、候補を出してもらう</small></span></label></li>
+        <li><label><input type="checkbox" data-progress="pick3"><span class="pick-list__body"><strong>打ち合わせメモの整理</strong><small>バラバラのメモを、読みやすい報告にまとめる</small></span></label></li>
+        <li><label><input type="checkbox" data-progress="pick4"><span class="pick-list__body"><strong>資料・提案書のたたき台</strong><small>Word・PowerPointで形にしてもらう</small></span></label></li>
+        <li><label><input type="checkbox" data-progress="pick5"><span class="pick-list__body"><strong>表の集計と報告文</strong><small>Excelの数字をまとめて、文章にしてもらう</small></span></label></li>
+        <li><label><input type="checkbox" data-progress="pick6"><span class="pick-list__body"><strong>ファイルやフォルダの整理</strong><small>種類ごとに分けて、名前を付け直す<span class="tag tag--desktop">デスクトップ版</span></small></span></label></li>
+        <li><label><input type="checkbox" data-progress="pick7"><span class="pick-list__body"><strong>調べものとまとめ</strong><small>集めた資料を読んで、要点を整理する</small></span></label></li>
+        <li><label><input type="checkbox" data-progress="pick8"><span class="pick-list__body"><strong>SNSやブログの下書き</strong><small>メモから、投稿文のたたき台を作る</small></span></label></li>
+      </ul>
+      <p class="progress-count" aria-live="polite">選んだ仕事 <span data-count-for="pick">0</span> / 8</p>
+      <div class="note-box">
+        <p class="note-box__label">最初は「1つだけ」</p>
+        <p>たくさん選んだ人も、最初に任せるのは<strong>1つだけ</strong>で大丈夫です。「毎週やっていて、少しめんどう」な仕事が、いちばん向いています。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 05 準備
+  ============================================================ -->
+  <section class="section section--soft" id="prepare" aria-labelledby="prepare-heading">
+    <div class="section__inner reveal">
+      <p class="step-label">STEP 2</p>
+      <h2 class="section__heading" id="prepare-heading">準備（10分）</h2>
+      <ol class="numbered-steps">
+        <li><strong>アカウントを作る</strong>：<a href="https://claude.ai/" target="_blank" rel="noopener noreferrer">claude.ai</a> でアカウントを作ります（18歳以上、対応地域のみ）。</li>
+        <li><strong>デスクトップアプリを入れる</strong><span class="tag tag--desktop">デスクトップ版</span>：<a href="https://claude.com/download" target="_blank" rel="noopener noreferrer">claude.com/download</a> から、MacかWindowsのアプリをダウンロードします。無料でも使えます。</li>
+        <li><strong>ファイル作成をオンにする</strong><span class="tag tag--free">無料でもOK</span>：設定の中の「Capabilities（機能）」にある「Code execution and file creation」をオンにします。Word・Excelなどを作ってもらえるようになります。</li>
+        <li><strong>有料プランを選ぶ</strong><span class="tag tag--paid">有料プラン</span>：仕事を任せるには、Pro（月20ドル＋日本では消費税10%）以上が必要です。<a href="https://claude.com/pricing" target="_blank" rel="noopener noreferrer">料金ページ</a>で、最新の条件を確認してから申し込みましょう。</li>
+      </ol>
+      <div class="note-box">
+        <p class="note-box__label">画面の名前は変わることがあります</p>
+        <p>ボタンやメニューの名前は、アプリの更新で変わることがあります。見つからないときは、公式の案内（このページの最後にリンクがあります）で確認してください。申し込みの前に、無料版で前半の機能を試してみるのもおすすめです。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 06 自分の仕事を覚えてもらう
+  ============================================================ -->
+  <section class="section" id="memory" aria-labelledby="memory-heading">
+    <div class="section__inner reveal">
+      <p class="step-label">STEP 3</p>
+      <h2 class="section__heading" id="memory-heading">自分の仕事を<br>覚えてもらう</h2>
+      <p class="tag-row"><span class="tag tag--free">無料でもOK</span></p>
+      <div class="prose">
+        <p>毎回「私は〇〇の仕事をしていて…」と説明するのは大変です。最初に一度、自分の仕事の前提を伝えておくと、あとの頼みごとがぐっと楽になります。</p>
+      </div>
+      <div class="prompt-box">
+        <p class="prompt-box__title">プロンプト①　自分の仕事を伝える</p>
+        <pre class="prompt-box__text" id="p-intro">あなたに、私の仕事の前提を知っておいてもらいたいです。
+次の内容を読んで、私のことを整理してください。
+
+【私について】
+・仕事：〈例：在宅で事務の仕事をしています〉
+・よく使う道具：〈例：Gmail、Googleカレンダー、Excel〉
+・文章のくせ：〈例：やわらかく丁寧。長い文章は苦手〉
+・困っていること：〈例：メールの返信に毎日30分かかる〉
+
+分からないことがあれば、まず私に質問してください。
+そのあと「あなたについて分かったこと」を5行以内でまとめて見せてください。
+間違いがあれば、私が直します。</pre>
+        <button class="btn btn--primary copy-btn" type="button" data-copy-target="p-intro"><span class="copy-btn__label">プロンプトをコピーする</span><span class="copy-btn__done">コピーしました</span></button>
+        <p class="copy-status" role="status" aria-live="polite"></p>
+      </div>
+      <p class="fill-hint"><span class="fill">〈 〉</span>の部分は、自分の内容に書き換えてから送ってください。</p>
+      <div class="note-box">
+        <p class="note-box__label">覚えてもらった内容は、自分で見られます</p>
+        <p>Claudeが覚えた内容は、設定の「Memory（メモリ）」で確認・編集できます。パスワードやカード番号など、覚えてほしくない情報は書かないでください。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 07 Projects
+  ============================================================ -->
+  <section class="section section--soft" id="projects" aria-labelledby="projects-heading">
+    <div class="section__inner reveal">
+      <p class="step-label">STEP 4</p>
+      <h2 class="section__heading" id="projects-heading">仕事ごとの<br>「棚」を作る</h2>
+      <p class="tag-row"><span class="tag tag--free">無料でもOK</span></p>
+      <div class="prose">
+        <p><strong>Projects（プロジェクト）</strong>は、仕事ごとに「資料」と「ルール」を置いておける棚のようなものです。たとえば「メール対応」の棚には、よく使う文例と、守ってほしいルールを入れておきます。</p>
+      </div>
+      <ol class="numbered-steps">
+        <li>Claudeの画面で「Projects」を開き、新しいプロジェクトを作る</li>
+        <li>名前を付ける（例：メール対応、セミナー準備）</li>
+        <li>関係する資料（文例、過去の資料など）を入れる</li>
+        <li>下の文章を、プロジェクトの「指示」に貼り付ける</li>
+      </ol>
+      <div class="prompt-box">
+        <p class="prompt-box__title">プロンプト②　プロジェクトの指示文</p>
+        <pre class="prompt-box__text" id="p-project">このプロジェクトでは、私の〈例：メール対応〉の仕事を手伝ってください。
+
+【前提】
+・相手：〈例：お客様、取引先〉
+・文章のトーン：〈例：丁寧でやわらかく、3〜5行で〉
+・必ず守ること：〈例：金額や日付は、資料に書いてあるものだけを使う〉
+
+【進め方】
+・作業の前に、やることを短く書いて見せてください。
+・分からないことは、想像で埋めずに質問してください。
+・終わったら、確認してほしい点を最後に書いてください。</pre>
+        <button class="btn btn--primary copy-btn" type="button" data-copy-target="p-project"><span class="copy-btn__label">プロンプトをコピーする</span><span class="copy-btn__done">コピーしました</span></button>
+        <p class="copy-status" role="status" aria-live="polite"></p>
+      </div>
+      <div class="note-box">
+        <p class="note-box__label">ポイント</p>
+        <p>棚の中の頼みごとは、毎回ルールを書かなくても、同じ前提で進みます。仕事が増えたら、棚も1つずつ増やしましょう。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 08 ファイル・フォルダを任せる
+  ============================================================ -->
+  <section class="section" id="files" aria-labelledby="files-heading">
+    <div class="section__inner reveal">
+      <p class="step-label">STEP 5</p>
+      <h2 class="section__heading" id="files-heading">ファイル・フォルダを<br>任せる</h2>
+      <p class="tag-row"><span class="tag tag--paid">有料プラン</span><span class="tag tag--desktop">デスクトップ版</span></p>
+      <div class="prose">
+        <p>ここからが「任せる」の本番です。パソコンの中のファイルやフォルダを、Claudeに読んで作業してもらいます。</p>
+      </div>
+      <div class="note-box note-box--warn">
+        <p class="note-box__label">最初は「練習用フォルダ」で</p>
+        <p>大事なファイルは使わず、コピーを入れた<strong>練習用のフォルダ</strong>を用意しましょう。アプリで作業するフォルダを選ぶと、Claudeはそのフォルダの中だけを扱います。ファイルを変更するときは、確認の画面が出ます。</p>
+        <p>ブラウザ版やスマホでは、パソコン内のフォルダは扱えません。ファイルを画面にアップロードして渡す形になります。</p>
+      </div>
+
+      <h3 class="sub-heading">例①　フォルダを整理してもらう</h3>
+      <div class="prompt-box">
+        <p class="prompt-box__title">プロンプト③　まずは案だけ出してもらう</p>
+        <pre class="prompt-box__text" id="p-folder">このフォルダの中身を整理したいです。
+
+まず、フォルダの中のファイルを読んで、次の3つだけ教えてください。
+1. 何がどれくらい入っているか（種類ごとの数）
+2. おすすめのフォルダ分けの案
+3. ファイル名を付け直したほうがよいもの（変更前→変更後の表）
+
+まだ、ファイルの移動や名前の変更はしないでください。
+私が「この案で進めて」と言ってから実行してください。
+削除はしません。元のファイルは残してください。</pre>
+        <button class="btn btn--primary copy-btn" type="button" data-copy-target="p-folder"><span class="copy-btn__label">プロンプトをコピーする</span><span class="copy-btn__done">コピーしました</span></button>
+        <p class="copy-status" role="status" aria-live="polite"></p>
+      </div>
+
+      <h3 class="sub-heading">例②　資料を読んでまとめてもらう</h3>
+      <div class="prompt-box">
+        <p class="prompt-box__title">プロンプト④　資料から報告書のたたき台を作る</p>
+        <pre class="prompt-box__text" id="p-report">このフォルダにある〈例：先月の打ち合わせメモ〉をすべて読んで、
+〈例：チームに共有する報告書〉のたたき台をWord形式で作ってください。
+
+・読む人：〈例：上司、仕事に詳しくない人〉
+・長さ：〈例：A4で1枚くらい〉
+・資料に書いていないことは足さず、分からない所は「不明」と書いてください。
+・元のファイルは変えず、新しいファイルとして保存してください。
+・最後に、どの資料のどこから書いたかを一覧にしてください。</pre>
+        <button class="btn btn--primary copy-btn" type="button" data-copy-target="p-report"><span class="copy-btn__label">プロンプトをコピーする</span><span class="copy-btn__done">コピーしました</span></button>
+        <p class="copy-status" role="status" aria-live="polite"></p>
+      </div>
+
+      <h3 class="sub-heading">例③　表を集計して報告文にしてもらう</h3>
+      <div class="prompt-box">
+        <p class="prompt-box__title">プロンプト⑤　Excelの集計と報告文</p>
+        <pre class="prompt-box__text" id="p-excel">〈例：売上表.xlsx〉を読んで、次のことをしてください。
+
+1. 〈例：月ごとの合計〉を出す
+2. 前の月と比べて、増えた所・減った所を3つずつ挙げる
+3. 〈例：上司に出す報告文〉を5行で書く
+
+元のファイルは書き換えず、集計結果は新しいExcelファイルに保存してください。
+計算の仕方も、短く説明してください。</pre>
+        <button class="btn btn--primary copy-btn" type="button" data-copy-target="p-excel"><span class="copy-btn__label">プロンプトをコピーする</span><span class="copy-btn__done">コピーしました</span></button>
+        <p class="copy-status" role="status" aria-live="polite"></p>
+      </div>
+
+      <h3 class="sub-heading">例④　資料やスライドを作ってもらう</h3>
+      <p class="tag-row"><span class="tag tag--free">無料でもOK</span><span class="tag tag--small-note">ファイルを作ってダウンロードする形</span></p>
+      <div class="prompt-box">
+        <p class="prompt-box__title">プロンプト⑥　PowerPointの資料づくり</p>
+        <pre class="prompt-box__text" id="p-slide">〈例：来月のお客様向けセミナー〉の案内資料を、PowerPointで作ってください。
+
+・枚数：〈例：5枚〉
+・伝えたいこと：〈例：日程、内容、参加方法〉
+・読む人：〈例：AIが初めての40代女性〉
+・文字は大きく、1枚に伝えることは1つだけ。
+
+作る前に、スライドの構成案を見せてください。私がOKしたら作成してください。</pre>
+        <button class="btn btn--primary copy-btn" type="button" data-copy-target="p-slide"><span class="copy-btn__label">プロンプトをコピーする</span><span class="copy-btn__done">コピーしました</span></button>
+        <p class="copy-status" role="status" aria-live="polite"></p>
+      </div>
+      <p class="fill-hint"><span class="fill">〈 〉</span>の部分は、自分の内容に書き換えてから送ってください。</p>
+
+      <div class="note-box">
+        <p class="note-box__label">できあがったら、自分の目で確認</p>
+        <p>数字・名前・日付は、元の資料と見比べてください。Claudeは間違えることがあります。確認するところまでが、1回の仕事です。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       CTA① （STEP 5の後・軽量版）
+  ============================================================ -->
+  <section class="section cta-mid" id="cta-mid" aria-labelledby="cta-mid-heading">
+    <div class="section__inner reveal">
+      <div class="cta-card cta-card--light">
+        <h2 class="cta-card__heading" id="cta-mid-heading">AIに任せられる仕事を、<br>もっと増やしたい人へ</h2>
+        <div class="prose">
+          <p>ここまでで、Claudeに仕事を頼む感覚がつかめてきたのではないでしょうか。</p>
+          <p>AIを仕事につなげる方法や、初心者さん向けの活用術を<strong class="cta-card__highlight">『AIマネタイズの教科書』</strong>にまとめています。無料で受け取れます。</p>
+        </div>
+        <a class="btn btn--primary btn--large" href="#cta" target="_blank" rel="noopener noreferrer" data-line-link data-cta="mid" hidden>『AIマネタイズの教科書』を見てみる</a>
+        <p class="cta-card__note">受け取りは任意です。このまま下に進んでも、最後まで読めます。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 09 Gmailやカレンダーとつなぐ
+  ============================================================ -->
+  <section class="section" id="connect" aria-labelledby="connect-heading">
+    <div class="section__inner reveal">
+      <p class="step-label">STEP 6</p>
+      <h2 class="section__heading" id="connect-heading">Gmailやカレンダーと<br>つなぐ</h2>
+      <p class="tag-row"><span class="tag tag--free">無料でもOK</span><span class="tag tag--small-note">コネクタ</span></p>
+      <div class="prose">
+        <p><strong>コネクタ</strong>は、Claudeと、Gmail・Googleカレンダー・Googleドライブをつなぐ仕組みです。つなぐと、Claudeがメールや予定を読んで、仕事をしてくれます。</p>
+      </div>
+      <ol class="numbered-steps">
+        <li>Claudeの設定で、コネクタ（Connectors）を開く</li>
+        <li>Gmail・Googleカレンダー・Googleドライブから、使いたいものを選ぶ</li>
+        <li>Googleアカウントの確認画面が出たら、内容を読んで<strong>自分で</strong>許可する</li>
+      </ol>
+      <div class="note-box note-box--warn">
+        <p class="note-box__label">最初は「下書きまで」</p>
+        <p>つなぐと、Claudeはメールの送信や予定の登録・変更もできるようになります。最初は「<strong>送信はしないで、下書きまで</strong>」「<strong>登録する前に確認して</strong>」と頼んでおくと安心です。</p>
+      </div>
+
+      <h3 class="sub-heading">メールを整理して、返信の下書きを作る</h3>
+      <div class="prompt-box">
+        <p class="prompt-box__title">プロンプト⑦　Gmailの整理と下書き</p>
+        <pre class="prompt-box__text" id="p-gmail">Gmailの〈例：この1週間〉の受信メールを読んで、整理してください。
+
+1. 返信が必要なメールを、急ぎ順に一覧にする（差出人・件名・理由）
+2. そのうち上位3通について、返信の下書きを作る
+
+・私の文章のくせ：〈例：丁寧でやわらかく〉
+・送信はしないでください。下書きとして見せてください。
+・金額や日付など、メールに書かれていないことは書かないでください。</pre>
+        <button class="btn btn--primary copy-btn" type="button" data-copy-target="p-gmail"><span class="copy-btn__label">プロンプトをコピーする</span><span class="copy-btn__done">コピーしました</span></button>
+        <p class="copy-status" role="status" aria-live="polite"></p>
+      </div>
+
+      <h3 class="sub-heading">予定の候補日を出してもらう</h3>
+      <div class="prompt-box">
+        <p class="prompt-box__title">プロンプト⑧　カレンダーで空き時間を探す</p>
+        <pre class="prompt-box__text" id="p-calendar">Googleカレンダーを見て、来週の予定を整理してください。
+
+・〈例：1時間の打ち合わせ〉を2回入れたいです。
+・避けたい時間：〈例：午前中、18時以降〉
+・空いている時間から、候補を3つ出してください。
+
+予定の登録・変更・削除は、まだしないでください。
+私が候補を選んだあとで、登録してください。</pre>
+        <button class="btn btn--primary copy-btn" type="button" data-copy-target="p-calendar"><span class="copy-btn__label">プロンプトをコピーする</span><span class="copy-btn__done">コピーしました</span></button>
+        <p class="copy-status" role="status" aria-live="polite"></p>
+      </div>
+
+      <h3 class="sub-heading">ドライブの資料を探してまとめる</h3>
+      <div class="prompt-box">
+        <p class="prompt-box__title">プロンプト⑨　Googleドライブの資料探し</p>
+        <pre class="prompt-box__text" id="p-drive">Googleドライブの中から、〈例：「セミナー」に関する資料〉を探してください。
+
+見つかった資料のタイトルと、内容を2行ずつでまとめた一覧を作ってください。
+そのうえで、〈例：次のセミナーで使えそうなポイント〉を5つ挙げてください。
+ファイルの移動・削除・共有設定の変更はしないでください。</pre>
+        <button class="btn btn--primary copy-btn" type="button" data-copy-target="p-drive"><span class="copy-btn__label">プロンプトをコピーする</span><span class="copy-btn__done">コピーしました</span></button>
+        <p class="copy-status" role="status" aria-live="polite"></p>
+      </div>
+      <p class="fill-hint"><span class="fill">〈 〉</span>の部分は、自分の内容に書き換えてから送ってください。</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 10 いくつかの作業をまとめて任せる
+  ============================================================ -->
+  <section class="section section--soft" id="multi" aria-labelledby="multi-heading">
+    <div class="section__inner reveal">
+      <p class="step-label">STEP 7</p>
+      <h2 class="section__heading" id="multi-heading">いくつかの作業を<br>まとめて任せる</h2>
+      <p class="tag-row"><span class="tag tag--paid">有料プラン</span></p>
+      <div class="prose">
+        <p>慣れてきたら、「調べる → まとめる → 資料にする」のように、<strong>いくつかの作業をひとまとめ</strong>で頼んでみましょう。コツは、<strong>作業に入る前に、進め方を見せてもらう</strong>ことです。</p>
+      </div>
+      <ul class="card-grid card-grid--four">
+        <li class="card"><span class="card__num">1</span><p>ほしいもの（ゴール）</p></li>
+        <li class="card"><span class="card__num">2</span><p>使う材料</p></li>
+        <li class="card"><span class="card__num">3</span><p>守ってほしいこと</p></li>
+        <li class="card"><span class="card__num">4</span><p>先に進め方を見せて</p></li>
+      </ul>
+      <div class="prompt-box">
+        <p class="prompt-box__title">プロンプト⑩　まとめて頼む型</p>
+        <pre class="prompt-box__text" id="p-multi">〈例：来月のミニセミナーの準備〉を手伝ってください。
+最終的にほしいもの：〈例：当日の進行表と、案内メールの下書き〉
+
+材料：〈例：このフォルダのメモ、Googleドライブの過去資料〉
+期限：〈例：今週金曜まで〉
+
+作業に入る前に、次の3つを見せてください。
+1. やることの順番（手順）
+2. 私に確認したいこと
+3. 作るファイルの名前と形式
+
+私がOKを出したら、手順どおりに進めてください。
+途中で迷ったら止まって質問してください。</pre>
+        <button class="btn btn--primary copy-btn" type="button" data-copy-target="p-multi"><span class="copy-btn__label">プロンプトをコピーする</span><span class="copy-btn__done">コピーしました</span></button>
+        <p class="copy-status" role="status" aria-live="polite"></p>
+      </div>
+      <p class="fill-hint"><span class="fill">〈 〉</span>の部分は、自分の内容に書き換えてから送ってください。</p>
+
+      <h3 class="sub-heading">直してほしいときは「場所・気になる点・希望」</h3>
+      <div class="prose">
+        <p>「もっとやさしくして」だけだと、全体が書き換わってしまいます。<strong>どこを、何が気になって、どうしたいか</strong>を伝えましょう。</p>
+      </div>
+      <div class="prompt-box">
+        <p class="prompt-box__title">プロンプト⑪　直してもらうとき</p>
+        <pre class="prompt-box__text" id="p-fix">〈例：2段落目〉の〈例：「自動化」という言葉〉が、初めて読む人には難しそうです。
+〈例：買い物メモの例〉で言い換えてください。
+ほかの部分は変えないでください。</pre>
+        <button class="btn btn--primary copy-btn" type="button" data-copy-target="p-fix"><span class="copy-btn__label">プロンプトをコピーする</span><span class="copy-btn__done">コピーしました</span></button>
+        <p class="copy-status" role="status" aria-live="polite"></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 11 安全に任せるコツ
+  ============================================================ -->
+  <section class="section" id="safe" aria-labelledby="safe-heading">
+    <div class="section__inner reveal">
+      <p class="step-label">STEP 8</p>
+      <h2 class="section__heading" id="safe-heading">安全に<br>任せるコツ</h2>
+      <div class="prose"><p>任せるときは、次の6つだけ守ってください。チェックは、このブラウザに保存されます。</p></div>
+      <ul class="safety-list">
+        <li><label><input type="checkbox" data-progress="safe1"><span>最初は、コピーを入れた練習用フォルダで試す</span></label></li>
+        <li><label><input type="checkbox" data-progress="safe2"><span>メールの送信・予定の登録・ファイルの削除は、自分で確認してから</span></label></li>
+        <li><label><input type="checkbox" data-progress="safe3"><span>許可の画面が出たら、何を変えるのか読んでから許可する</span></label></li>
+        <li><label><input type="checkbox" data-progress="safe4"><span>出どころの分からないファイルを、そのまま読み込ませない</span></label></li>
+        <li><label><input type="checkbox" data-progress="safe5"><span>パスワードやカード番号などの大事な情報は渡さない</span></label></li>
+        <li><label><input type="checkbox" data-progress="safe6"><span>できあがったものは、自分の目で確認する</span></label></li>
+      </ul>
+      <p class="progress-count" aria-live="polite">チェック済み <span data-count-for="safe">0</span> / 6</p>
+      <div class="note-box">
+        <p class="note-box__label">出どころの分からないファイルに注意</p>
+        <p>ほかの人から届いたファイルの中に、Claudeへの「隠れた指示」が入っていることがあります。公式も注意を呼びかけています。知らない相手のファイルは、そのまま読み込ませないでください。</p>
+      </div>
+      <h3 class="sub-heading">思っていたのと違う作業が始まったら</h3>
+      <div class="prose"><p>まず<strong>停止ボタンで止めて</strong>、次の文章を送ってください。</p></div>
+      <div class="prompt-box">
+        <p class="prompt-box__title">プロンプト⑫　止めて、状況を聞く</p>
+        <pre class="prompt-box__text" id="p-stop">いったん止めてください。
+ここまでに、何を変更しましたか？ ファイル名と内容を3行で教えてください。
+続きの作業は、私が「進めて」と言うまでしないでください。</pre>
+        <button class="btn btn--primary copy-btn" type="button" data-copy-target="p-stop"><span class="copy-btn__label">プロンプトをコピーする</span><span class="copy-btn__done">コピーしました</span></button>
+        <p class="copy-status" role="status" aria-live="polite"></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 12 今日の1件
+  ============================================================ -->
+  <section class="section section--soft" id="today" aria-labelledby="today-heading">
+    <div class="section__inner reveal">
+      <p class="step-label">GOAL</p>
+      <h2 class="section__heading" id="today-heading">今日の1件を<br>任せてみよう</h2>
+      <div class="prose">
+        <p>STEP 1で選んだ仕事から、<strong>いちばん小さいもの</strong>を1つ選びます。下の文章に当てはめて送れば、準備は完了です。</p>
+      </div>
+      <div class="prompt-box">
+        <p class="prompt-box__title">プロンプト⑬　仕事を1つ任せる</p>
+        <pre class="prompt-box__text" id="p-today">私の仕事を1つ、任せたいです。
+
+【任せたい仕事】〈例：先週のお客様メールの整理〉
+【使う材料】〈例：Gmailの受信メール／このフォルダのファイル〉
+【ほしい形】〈例：要返信の一覧と、返信の下書き3通〉
+【守ってほしいこと】〈例：送信しない／元のファイルは変えない〉
+
+作業の前に、進め方を短く見せてください。私がOKを出したら始めてください。
+終わったら、私が確認すべき点を最後に書いてください。</pre>
+        <button class="btn btn--primary copy-btn" type="button" data-copy-target="p-today"><span class="copy-btn__label">プロンプトをコピーする</span><span class="copy-btn__done">コピーしました</span></button>
+        <p class="copy-status" role="status" aria-live="polite"></p>
+      </div>
+      <p class="fill-hint"><span class="fill">〈 〉</span>の部分は、自分の内容に書き換えてから送ってください。</p>
+      <h3 class="sub-heading">終わったら、3つ確認</h3>
+      <ul class="check-list">
+        <li>頼んだとおりのものができているか</li>
+        <li>数字・名前・日付が、元の資料と合っているか</li>
+        <li>元のファイルが残っているか</li>
+      </ul>
+      <div class="note-box">
+        <p class="note-box__label">うまくいかなくても大丈夫</p>
+        <p>最初から完璧にはいきません。直してほしい所を「場所・気になる点・希望」で伝えれば、少しずつ思ったものに近づきます。1回やってみたあなたは、もう「任せる側」の入り口に立っています。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 13 その先へ
+  ============================================================ -->
+  <section class="section" id="next" aria-labelledby="next-heading">
+    <div class="section__inner reveal">
+      <h2 class="section__heading" id="next-heading">もっと作りたい人の<br>次のステップ</h2>
+      <p class="tag-row"><span class="tag tag--paid">有料プラン</span><span class="tag tag--desktop">デスクトップ版</span></p>
+      <div class="prose">
+        <p>「自分で使うツールを作りたい」「Webページを作ってみたい」と思ったら、<strong>Claude Code（クロード・コード）</strong>があります。パソコンの中で、ファイルを作ったりプログラムを書いたりする作業まで任せられる、開発向けの機能です。</p>
+        <p>デスクトップアプリの「Code」から使えます。まずはこのガイドの内容に慣れてから、のぞいてみてください。</p>
+      </div>
+      <ul class="link-list">
+        <li><a href="https://code.claude.com/docs/en/desktop-quickstart" target="_blank" rel="noopener noreferrer">Claude Code（デスクトップ版）の始め方（公式・英語）</a></li>
+        <li><a href="https://academy.claude.com/" target="_blank" rel="noopener noreferrer">Claude Academy（公式の無料講座・英語）</a></li>
+      </ul>
+      <p class="muted">英語のページは、ブラウザの翻訳機能で日本語にして読めます。</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 14 困ったとき
+  ============================================================ -->
+  <section class="section section--soft" id="faq" aria-labelledby="faq-heading">
+    <div class="section__inner reveal">
+      <h2 class="section__heading" id="faq-heading">困ったとき</h2>
+      <div class="faq">
+        <details>
+          <summary>自分の画面に「Cowork」がありません。使えませんか？</summary>
+          <p>使えます。Coworkは通常のClaudeに統合されたため、新しい画面では別モードがなく、ふつうの会話の中で頼みます。ただし、仕事を任せる機能は<strong>有料プランが対象</strong>です。無料版の場合は、プランを確認してください。</p>
+        </details>
+        <details>
+          <summary>「Chat / Cowork」の切り替えが出ています。</summary>
+          <p>新しい画面が順次展開中のため、まだ切り替えが残っている人がいます。仕事を任せたいときは「Cowork」側で頼んでください。そのうち新しい画面に変わります。</p>
+        </details>
+        <details>
+          <summary>無料版でも全部できますか？</summary>
+          <p>いいえ。覚えてもらう・Projects・ファイル作成・Gmailなどとつなぐ、までは無料でも試せます。仕事を任せる機能と、パソコン内のフォルダを扱う操作は、有料プラン（デスクトップ版）が前提です。</p>
+        </details>
+        <details>
+          <summary>ブラウザ版やスマホで、Mac内のフォルダを操作できますか？</summary>
+          <p>自由には操作できません。パソコン内のフォルダを扱うには、Claudeのデスクトップアプリが必要です。ブラウザ版・スマホでは、ファイルをアップロードして渡す形になります。</p>
+        </details>
+        <details>
+          <summary>会社のアカウントで、機能が使えません。</summary>
+          <p>Team・Enterpriseのアカウントでは、管理者の設定で使える機能が決まっていることがあります。会社の管理者に確認してください。</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 15 公式情報
+  ============================================================ -->
+  <section class="section" id="sources" aria-labelledby="sources-heading">
+    <div class="section__inner reveal">
+      <h2 class="section__heading" id="sources-heading">公式情報<br><small class="section__small">2026年10月7日に確認</small></h2>
+      <ul class="link-list">
+        <li><a href="https://claude.com/download" target="_blank" rel="noopener noreferrer">Claudeのダウンロード</a></li>
+        <li><a href="https://claude.com/pricing" target="_blank" rel="noopener noreferrer">料金ページ</a></li>
+        <li><a href="https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork" target="_blank" rel="noopener noreferrer">Claude Coworkの始め方（統合の案内）</a></li>
+        <li><a href="https://support.claude.com/en/articles/12138966-release-notes" target="_blank" rel="noopener noreferrer">リリースノート</a></li>
+        <li><a href="https://support.claude.com/en/articles/10166901-use-google-workspace-connectors" target="_blank" rel="noopener noreferrer">Googleのコネクタ</a></li>
+        <li><a href="https://support.claude.com/en/articles/12111783-create-and-edit-files-with-claude" target="_blank" rel="noopener noreferrer">ファイルの作成と編集</a></li>
+        <li><a href="https://support.claude.com/en/articles/14051822-notice-regarding-consumption-tax-jct-for-japanese-customers" target="_blank" rel="noopener noreferrer">日本の消費税のお知らせ</a></li>
+      </ul>
+      <div class="note-box">
+        <p class="note-box__label">機能や料金は変わることがあります</p>
+        <p>Claudeは頻繁に更新されます。画面の表示や対象プランが、このガイドと違う場合は、公式の最新情報を優先してください。このガイドは、効果や成果をお約束するものではありません。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       CTA② （ページ最下部・完全版）
+  ============================================================ -->
+  <section class="section section--soft" id="cta" aria-labelledby="cta-heading">
+    <div class="section__inner reveal">
+      <div class="cta-card">
+        <h2 class="cta-card__heading" id="cta-heading">40代からでも、<br>働き方は変えられる。</h2>
+        <div class="prose">
+          <p>仕事を任せられるようになると、時間に少し余裕が生まれます。私も40代からAIを使って、いろいろな仕事に挑戦しています。</p>
+          <p>
+            「AIを使って家で働きたい」<br>
+            「今より収入の柱を増やしたい」<br>
+            そんな方に向けて、AI初心者さんでもAIを仕事に活かす考え方や方法をまとめた<br>
+            <strong class="cta-card__highlight">『AIマネタイズの教科書』</strong><br>
+            も無料でご用意しています。
+          </p>
+        </div>
+        <img src="assets/images/cta-textbook-contents.png" alt="AIマネタイズの教科書 5大特典。1 いま一番始めやすいAIマネタイズ手法、2 ChatGPT収益化プロンプト3選、3 AIマネタイズ神テンプレート、4 マネタイズのための生成AIツール3選、5 AI×SNSで収益を生むリアル事例" class="cta-card__contents">
+        <div class="prose">
+          <p>
+            また、「何から始めたらいいのかわからない」「自分には何が向いているのか相談したい」<br>
+            という方に向けて、<strong class="cta-card__highlight">AI収益化サポート会</strong>も実施中です。<br>
+            個別でのご相談も、下のLINEから受け付けています。
+          </p>
+          <p>一緒に新しいことに挑戦していきましょう！</p>
+        </div>
+        <a class="cta-card__banner-link" href="#cta" target="_blank" rel="noopener noreferrer" aria-label="AIマネタイズの教科書を受け取る" data-line-link data-cta="bottom-banner" hidden>
+          <img src="assets/images/cta-banner.png" alt="無料プレゼント AIマネタイズ教科書。AIで働き方の選択肢を広げたい方へ。LINE登録はこちら" class="cta-card__banner-img">
+        </a>
+        <a class="btn btn--primary btn--large" href="#cta" target="_blank" rel="noopener noreferrer" data-line-link data-cta="bottom" hidden>
+          AIを仕事につなげる方法を見てみる
+        </a>
+        <p class="cta-card__note">LINEで無料で受け取れます</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <p>© MION</p>
+  <p>このページの無断転載・複製はご遠慮ください。</p>
+</footer>
+
+<!-- 画面下に常時表示するLINEボタン（リンク先は script.js の LINE_URL） -->
+<div class="sticky-cta">
+  <a class="btn btn--primary sticky-cta__btn" href="#cta" target="_blank" rel="noopener noreferrer" data-line-link data-cta="sticky" hidden>
+    <svg class="sticky-cta__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 3C6.5 3 2 6.6 2 11c0 2.5 1.4 4.7 3.6 6.2-.1.9-.5 2.4-1.400 3.500 0 0 2.700-.300 4.700-1.700.9.200 1.900.300 3.100.300 5.500 0 10-3.600 10-8S17.500 3 12 3z"/></svg>
+    <span>LINEに登録して「AIマネタイズの教科書」を受け取る</span>
+  </a>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
