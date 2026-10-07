@@ -127,6 +127,7 @@ HTML5 / CSS3 / Vanilla JavaScript。ビルドなし。GitHub Pages。
 - 架空の体験談・実績・画面名を書かない
 - 金額は「月20ドル＋消費税」。円額は為替で変わるため書かない
 - 画像は `width`/`height` 属性を付けず、CSSで `aspect-ratio` + `object-fit: contain`
+- 「聞く／任せる」の2枚のイラスト（`assets/images/ask-illustration.jpg`・`delegate-illustration.jpg`）はCanvaのAI画像生成で作成（文字・ロゴなし、4:3）。差し替えるときは同名ファイルを置く
 - OGP画像は設定しない（`twitter:card=summary`）
 - CTAは「AIマネタイズの教科書」＋「AI収益化サポート会／個別相談」を常時表示（教科書の目次は添付画像 `cta-textbook-contents.png`）
 
