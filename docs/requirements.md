@@ -130,6 +130,7 @@ HTML5 / CSS3 / Vanilla JavaScript。ビルドなし。GitHub Pages。
 - 画像は `width`/`height` 属性を付けず、CSSで `aspect-ratio` + `object-fit: contain`
 - 「聞く／任せる」の2枚のイラスト（`assets/images/ask-illustration.jpg`・`delegate-illustration.jpg`）はCanvaのAI画像生成で作成（文字・ロゴなし、4:3）。差し替えるときは同名ファイルを置く
 - 画面のスクリーンショット4枚（`shot-settings-files-desktop.jpg`・`shot-connectors-desktop.jpg`・`shot-sidebar-desktop.jpg`・`shot-project-new-desktop.jpg`。すべてデスクトップアプリの画面）は、運営者のClaude画面（**ブラウザ版 claude.ai**・2026-10-07）。デスクトップアプリでは、設定の左メニュー（機能・アカウント・メモリー等）、「機能」内の「クラウドでのコード実行とファイル作成」、「アカウント→Claudeへの指示」、「コネクタ→探索」、左メニュー「プロジェクト」、「新規プロジェクト」の各画面を運営者の画面で確認済み（2026-10-07）。ブラウザ版（claude.ai）は同じ項目名・同じ作りであることを確認済みから**設定ウィンドウ部分だけを切り抜いて**使用。名前・メール・チャット履歴が写らないことを確認済み。赤い枠はHTML/CSSで重ねる（画像自体は加工しない）。画面は更新で変わるため、公開前と更新時に撮り直す
+- 方法①（Claudeへの指示）の図 `shot-account-instructions.jpg` を追加（設定→アカウント→「Claudeへの指示」・運営者提供・2026-10-08）。個人情報が写っていないことを確認済み。撮影元がデスクトップアプリかブラウザ版かは未確認のため、キャプションでは明記しない
 - UIの表示名は実画面で確認した名前を使う（設定→「機能」→「クラウドでのコード実行とファイル作成」／左メニュー「プロジェクト」→「目標」「コンテキスト」／設定→「コネクタ」→「探索」／設定→「メモリー」／設定→「アカウント」→「Claudeへの指示」）
 - OGP画像は設定しない（`twitter:card=summary`）
 - CTAは「AIマネタイズの教科書」＋「AI収益化サポート会／個別相談」を常時表示（教科書の目次は添付画像 `cta-textbook-contents.png`）
